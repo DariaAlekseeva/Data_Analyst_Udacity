@@ -1,6 +1,25 @@
 from pandas import *
 import numpy
 
+
+
+    predictions = {}
+    df = pandas.read_csv(file_path)
+    for passenger_index, passenger in df.iterrows():
+  
+        passenger_id = passenger['PassengerId']
+        if passenger['Sex'] == "female":
+            predictions[passenger_id] = 1
+        #if passenger['Pclass'] ==1 and passenger['Age'] <= 18:    
+        #    predictions[passenger_id] = 1
+        elif passenger['SibSp'] > 1 and passenger['Parch'] > 1:
+            predictions[passenger_id] = 1
+        else:
+            predictions[passenger_id] = 0
+    return predictions
+
+
+
 #Add another comment
 
 #Adding a comment
