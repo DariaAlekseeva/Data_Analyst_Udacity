@@ -135,8 +135,6 @@ def entries_histogram(turnstile_weather):
     '''
     
     plt.figure()
-    #ent_rain = turnstile_weather['ENTRIESn_hourly'][(turnstile_weather['rain'] == 1)] # your code here to plot a historgram for hourly entries when it is raining
-    #ent_norain = turnstile_weather['ENTRIESn_hourly'][(turnstile_weather['rain'] == 0)] # your code here to plot a historgram for hourly entries when it is not raining
     ent_rain = turnstile_weather['ENTRIESn_hourly'][turnstile_weather.rain ==1] 
     ent_norain = turnstile_weather['ENTRIESn_hourly'][turnstile_weather.rain ==0]
     
@@ -438,19 +436,7 @@ If you receive a "server has encountered an error" message, that means you are h
 the 30 second limit that's placed on running your program. See if you can optimize your code so it
 runs faster.
 """
-#statsmodels.regression.linear_model.OLS(endog, exog=None, missing='none', hasconst=None, **kwargs)
 
-#def predictions(weather_turnstile):
-    #weather_turnstile = weather_turnstile.copy()
-    #Y = weather_turnstile[['ENTRIESn_hourly']]
-    #X = weather_turnstile[['rain' , 'precipi' , 'Hour' , 'meantempi']]
-    #X = sm.add_constant(X)
-    #X['intercept'] = 1
-    #model = sm.OLS(Y,X)
-    #model = sm.OLS(formula = 'ENTRIESn_hourly ~ rain + precipi + C(Hour) + meantempi', data = Y).fit()
-    #result = model.fit()
-    #prediction = np.dot(X, result.params)
-    #return prediction
 
 
 
@@ -494,10 +480,15 @@ def predictions(weather_turnstile):
     model =  smf.OLS(values,features)
     results = model.fit()
     prediction = np.dot(features , results.params)
-#   prediction = np.dot(features , res.params)
-#   prediction = np.dot(features_array, theta)  
+ 
      
     return prediction
+
+
+
+
+
+
 
 
 

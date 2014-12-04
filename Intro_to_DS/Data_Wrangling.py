@@ -22,7 +22,7 @@ def add_full_name(path_to_csv, path_to_new_csv):
     
     
     
-    import pandas
+import pandas
 import pandasql
 
 def select_first_50(filename):
